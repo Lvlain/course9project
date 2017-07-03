@@ -1,0 +1,64 @@
+---
+title       : 7 Number Multiplication Calculator
+subtitle    : Coursera Project
+author      : James Shepherd
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Purpose of Calculator
+
+The calculator takes 7 numbers and multiplies them together.
+
+Numbers can be entered by using the arrows to increment up or down by 1. 
+
+Alternatively, free text of any value can be input into the boxes.
+
+--- .class #id
+
+## View Results
+
+To view the results, please press the submit button.
+
+The results will be displayed in the right-hand panel.
+
+--- .class #id
+
+## Example Calculation
+
+Example calculation using the 7 default values of 42, 69, 5, 2, 7, 3, 9:
+
+
+```r
+42 * 69 * 5 * 2 * 7 * 3 * 9
+```
+
+```
+## [1] 5477220
+```
+
+--- .class #id 
+
+## Extensions and Modifications
+
+Modifying the server.R file allows for other mathematical functions to be calculated e.g. addition:
+
+
+```r
+shinyServer(function(input, output) {
+   
+  data <- reactive({
+    input$numeric + input$numeric2 + input$numeric3 + input$numeric4 + input$numeric5 
+    + input$numeric6 + input$numeric7
+  })
+  
+  output$out <- data
+  })  
+```
+
+Future release will include radio buttons to allow calculations to be changed dynamically by the end user.
